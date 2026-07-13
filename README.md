@@ -18,6 +18,7 @@ to be installed or compiled.
 ```
 index.html      The entire page: content, metadata, structured data
 styles.css      All styling (design tokens at the top)
+script.js       Sets the footer year to the current year
 404.html        Shown by GitHub Pages for unknown URLs
 CNAME           Custom domain (exactly: jasonemartin.info)
 robots.txt      Allows all crawlers, points to the sitemap
@@ -33,8 +34,8 @@ All visible copy lives in `index.html`. Edit the text inside the `<section>`
 elements (hero, About, Currently, Education, Elsewhere) and the footer.
 Style notes for consistency: short paragraphs, no em or en dashes.
 
-Each January, bump the year in the footer of `index.html` and `404.html`
-(it is intentionally static text, which keeps the site JavaScript-free).
+The footer year updates itself via `script.js`; the `2026` in the HTML is only
+the no-JavaScript fallback, so there is nothing to bump each year.
 
 If the page title, description, or social captions change, update the matching
 `<meta>` tags and the JSON-LD block in the `<head>` as well.
