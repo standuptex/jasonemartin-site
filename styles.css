@@ -179,6 +179,7 @@ a:hover {
   gap: var(--s2);
   min-height: 48px;
   padding: var(--s3) var(--s5);
+  border: 1.5px solid transparent;
   border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
@@ -196,7 +197,7 @@ a:hover {
 }
 
 .button-secondary {
-  border: 1.5px solid var(--accent);
+  border-color: var(--accent);
   color: var(--accent);
 }
 
@@ -367,6 +368,10 @@ footer {
     --text: #000000;
     --muted: #333333;
     --hairline: #999999;
+    --accent: #163A44;
+    --accent-strong: #163A44;
+    --accent-contrast: #FFFFFF;
+    --surface: #FFFFFF;
   }
 
   .button {
@@ -375,7 +380,9 @@ footer {
     color: #000000;
   }
 
-  .link-chip::after {
+  .link-chip::after,
+  .button[href^="https://"]::after,
+  .button[href^="mailto:"]::after {
     content: " (" attr(href) ")";
     font-weight: 400;
   }
