@@ -23,7 +23,8 @@ CNAME           Custom domain (exactly: jasonemartin.info)
 robots.txt      Allows all crawlers, points to the sitemap
 sitemap.xml     Single-URL sitemap
 assets/         Images and icons
-assets/source/  Full-resolution source photo (originals, not served)
+assets/source/  Source photo the delivery images are generated from
+                (not referenced by the page, but public once deployed)
 ```
 
 ## Updating the text
@@ -46,15 +47,15 @@ ImageMagick, cwebp, and avifenc, all available via Homebrew):
 
 ```sh
 SRC="assets/source/your-new-photo.jpg"
-magick "$SRC" -gravity center -crop 480x600+0+0 +repage /tmp/profile-master.png
+magick "$SRC" -resize 480x600^ -gravity center -extent 480x600 +repage /tmp/profile-master.png
 magick /tmp/profile-master.png -strip -sampling-factor 4:2:0 -interlace JPEG -quality 78 assets/profile-photo.jpg
 cwebp -q 80 -m 6 -metadata none /tmp/profile-master.png -o assets/profile-photo.webp
 avifenc -q 60 --speed 4 /tmp/profile-master.png assets/profile-photo.avif
 ```
 
-If the new photo has different proportions, adjust the crop so the result stays
-4:5 (width:height), and keep the `width="480" height="600"` attributes in
-`index.html` in sync with the true pixel size. Never upscale a small source.
+This fills a 4:5 frame from the center of any larger source. Keep the
+`width="480" height="600"` attributes in `index.html` in sync with the true
+pixel size. Never upscale a source smaller than 480x600.
 
 ## Updating links
 
@@ -80,8 +81,10 @@ and social previews with a share debugger.
 2. Push this folder's contents to the `main` branch.
 3. In the repository: Settings, then Pages, then set Source to
    "Deploy from a branch", branch `main`, folder `/ (root)`.
-4. Wait for the first deploy, then confirm the `https://<user>.github.io/...`
-   URL works.
+4. Wait for the first deploy. Because the repository contains a `CNAME` file,
+   the `https://<user>.github.io/...` URL will immediately redirect to
+   `jasonemartin.info`, so the site is only fully verifiable after the DNS
+   cutover described below.
 5. In Settings, then Pages, set the custom domain to `jasonemartin.info`
    (this matches the `CNAME` file already in the repository).
 
