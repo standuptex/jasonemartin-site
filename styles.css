@@ -245,15 +245,6 @@ main section p {
   max-width: 62ch;
 }
 
-.role-title {
-  font-weight: 600;
-}
-
-.role-detail {
-  margin-top: var(--s1);
-  color: var(--muted);
-}
-
 .link-list {
   list-style: none;
   padding: 0;
