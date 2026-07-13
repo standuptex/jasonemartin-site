@@ -6,3 +6,4 @@ node_modules/
 *.log
 lighthouse*
 review-screenshots/
+DEPLOYMENT.md
