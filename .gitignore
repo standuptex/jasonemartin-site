@@ -1,0 +1,8 @@
+.DS_Store
+CLAUDE_CODE_INSTRUCTIONS.md
+Informal Profile Pic circa26 - 900x600.jpg
+.claude/
+node_modules/
+*.log
+lighthouse*
+review-screenshots/
