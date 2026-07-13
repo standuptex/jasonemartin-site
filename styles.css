@@ -295,10 +295,9 @@ footer {
 @media (min-width: 800px) {
   .hero {
     display: grid;
-    grid-template-columns: minmax(300px, 400px) 1fr;
+    grid-template-columns: minmax(225px, 300px) 1fr;
     gap: var(--s7);
     align-items: center;
-    min-height: min(80svh, 42rem);
     padding-block: var(--s8);
     text-align: left;
   }
@@ -339,7 +338,7 @@ footer {
 
 @media (min-width: 1200px) {
   .hero {
-    grid-template-columns: minmax(320px, 420px) 1fr;
+    grid-template-columns: minmax(240px, 315px) 1fr;
     gap: var(--s8);
   }
 }
