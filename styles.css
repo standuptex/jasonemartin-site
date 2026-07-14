@@ -171,6 +171,7 @@ a:hover {
   margin-top: var(--s4);
   max-width: 46ch;
   margin-inline: auto;
+  text-wrap: balance;
 }
 
 .actions {
